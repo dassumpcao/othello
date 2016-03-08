@@ -1,6 +1,9 @@
 #ifndef __COMMON_H__
 #define __COMMON_H__
 
+#include <vector>
+#include <iostream>
+
 enum Side { 
     WHITE, BLACK
 };
@@ -21,5 +24,4 @@ public:
     void setX(int x) { this->x = x; }
     void setY(int y) { this->y = y; }
 };
-
 #endif

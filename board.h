@@ -22,14 +22,17 @@ public:
     Board *copy();
         
     bool isDone();
+    bool isCorner(int x, int y);
     bool hasMoves(Side side);
     bool checkMove(Move *m, Side side);
     void doMove(Move *m, Side side);
     int count(Side side);
     int countBlack();
     int countWhite();
-
+    bool getSide(Side side, int x, int y);
     void setBoard(char data[]);
+
+    std::vector<Move> getPossibleMoves(Side side);
 };
 
 #endif

@@ -45,6 +45,10 @@ bool Board::onBoard(int x, int y) {
     return(0 <= x && x < 8 && 0 <= y && y < 8);
 }
 
+bool Board::getSide(Side side, int x, int y)
+{
+    return get(side, x, y);
+}
  
 /*
  * Returns true if the game is finished; false otherwise. The game is finished 
@@ -177,4 +181,25 @@ void Board::setBoard(char data[]) {
             taken.set(i);
         }
     }
+}
+
+std::vector<Move> Board::getPossibleMoves(Side side)
+{
+    std::vector<Move> potentials;
+    for (int i = 0; i < 8; i++)
+    {
+        for (int j = 0; j < 8; j++)
+        {
+            /*if (get(WHITE, i , j))
+                std::cerr << "w ";
+            else if (get(BLACK, i, j))
+                std::cerr << "b ";
+            else
+                std::cerr << "  ";*/
+            Move m = Move(i, j);
+            if (checkMove(&m, side))
+                potentials.push_back(m);
+        }
+    }
+    return potentials;
 }
